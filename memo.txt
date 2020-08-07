@@ -1,3 +1,5 @@
+[User]-発音->[スマートスピーカー]->[IFTTT]-Basic認証->[ngrok]->[Quiche]->[家電]
+
 [app.py] -> [command_reader.py] <- [{家電の登録名}.json]
                            L> [adrsirlib.py] -> [家電]
 
