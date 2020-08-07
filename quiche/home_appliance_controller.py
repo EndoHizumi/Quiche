@@ -1,4 +1,4 @@
-from quiche.adrsirlib import adrsirlib as ir
+# from quiche.adrsirlib import adrsirlib as ir
 from quiche.exceptions.exceptions import UnknownTypeError
 import requests
 import os
@@ -14,7 +14,7 @@ def send(command, name):
         command_type = commands[name]['type']
         if command_type == 'ir':
             print(f'{name} is type IR')
-            ir.send(commands[name][commands])
+            # ir.send(commands[name][commands])
         elif command_type == 'wi-fi':
             print(f'{name} is type Wi-Fi')
         else:
