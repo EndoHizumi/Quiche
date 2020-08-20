@@ -11,6 +11,10 @@ app.config['JSON_AS_ASCII'] = False
 def hello():
     return "hello"
 
+@app.route('/signals/<name>/<action>', methods=['PUT'])
+def add_command(button_no, name, action):
+    pass
+
 @app.route('/signals/<name>/<action>', methods=['POST'])
 def send_command(name, action):
     try:
@@ -31,6 +35,9 @@ def list_command(name):
     except KeyError:
         return abort(400)
 
+@app.route('/appliances')
+def list_appliance():
+    pass
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080, threaded=True)
+    app.run(debug=False, host='0.0.0.0', port=8080, threaded=True)

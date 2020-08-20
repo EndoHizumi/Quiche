@@ -29,3 +29,15 @@ def show(name):
         action_lists['commands'] = list(commands.keys())
         action_lists['type'] = commands['type']
     return json.dumps(action_lists)
+
+def read(name, button_no, action):
+    """adrsirで記録した赤外線パターンをJSONに保存する
+
+    記録したボタン番号と記憶したリモコンのボタンの名前（テレビなら、音量アップや８チャンネルなど）、操作される機器の名前を指定する
+
+    Args:
+        name : 操作される機器の名前（テレビなど。日本語可）
+        button_no : ADRSIRの記録したボタンの番号
+        action : 記憶させた赤外線パターンの登録名（テレビの電源を入れるなら、wakeなど。日本語可）
+    """    
+
