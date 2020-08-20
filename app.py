@@ -11,6 +11,15 @@ app.config['JSON_AS_ASCII'] = False
 def hello():
     return "hello"
 
+@app.route('/signals/<name>/<action>', methods=['POST'])
+def send_command(name, action):
+    try:
+        result = quiche.send(action, name)
+        return result
+    except FileNotFoundError:
+        return abort(404)
+    except KeyError:
+        return abort(400)
 
 @app.route('/<command>/<name>', methods=['GET'])
 def send_command(command, name):
