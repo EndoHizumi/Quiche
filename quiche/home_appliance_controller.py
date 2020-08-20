@@ -20,6 +20,7 @@ def send(command, name):
         else:
             raise UnknownTypeError('')
 
+
 def show(name):
     command_file_path = os.path.join(command_files_dir, f'{name}.json')
     with open(command_file_path) as command_json:
@@ -30,6 +31,7 @@ def show(name):
         action_lists['type'] = commands['type']
     return json.dumps(action_lists)
 
+
 def read(name, button_no, action):
     """adrsirで記録した赤外線パターンをJSONに保存する
 
@@ -39,5 +41,4 @@ def read(name, button_no, action):
         name : 操作される機器の名前（テレビなど。日本語可）
         button_no : ADRSIRの記録したボタンの番号
         action : 記憶させた赤外線パターンの登録名（テレビの電源を入れるなら、wakeなど。日本語可）
-    """    
-
+    """
