@@ -21,11 +21,11 @@ def send_command(name, action):
     except KeyError:
         return abort(400)
 
-@app.route('/<command>/<name>', methods=['GET'])
-def send_command(command, name):
+@app.route('/signals/<name>', methods=['GET'])
+def list_command(name):
     try:
-        quiche.send(command, name)
-        return "OK"
+        result = quiche.show(name)
+        return result
     except FileNotFoundError:
         return abort(404)
     except KeyError:

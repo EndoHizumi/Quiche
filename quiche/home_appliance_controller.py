@@ -19,3 +19,13 @@ def send(command, name):
             return(f'send to request {command} for {name}!')
         else:
             raise UnknownTypeError('')
+
+def show(name):
+    command_file_path = os.path.join(command_files_dir, f'{name}.json')
+    with open(command_file_path) as command_json:
+        commands = json.load(command_json)
+        action_lists = {}
+        action_lists['name'] = name
+        action_lists['commands'] = list(commands.keys())
+        action_lists['type'] = commands['type']
+    return json.dumps(action_lists)
