@@ -1,0 +1,14 @@
+[User]-発音->[スマートスピーカー]->[IFTTT]-Basic認証->[ngrok]->[Quiche]->[家電]
+
+[app.py] -> [command_reader.py] <- [{家電の登録名}.json]
+                           L> [adrsirlib.py] -> [家電]
+
+以下のエンドポイントで、リクエストをもらう
+/{command}/{家電の登録名}
+家電の登録名は、操作したい家電の型番が無難？（別にわかりやすいものだったら名称は何でも良い）
+
+app.pyで登録名のモジュールを探して、リクエスト内容のcommandをよび出す
+例：GET:/wake/IR-A06HU の、場合
+    command_reader.pyがIR-A06HU.config を、読み込む
+    モジュールのタイプが"IR"なら、その中のwake というキーから赤外線パターンを取得して、adrsirlib経由で赤外線を送信する。
+    モジュールのタイプが"WiFi"なら、APIをよび出す。
