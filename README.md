@@ -15,7 +15,7 @@
 
 登録した家電をREST APIで操作ができます。
 
-##　Equipment
+## Equipment
 
 - Raspberry Pi 3 Model b+
 - 赤外線学習リモコン基板 ADRSIR (http://bit-trade-one.co.jp/product/module/adrsir/)
@@ -60,7 +60,7 @@ curl http://localhost:8080/signals/appliances
 
 ### 利用ライブラリ・フレームワーク
 
-API部分: Flask
+API部分: Flask  
 ADRSIR操作: [you0708/adrsir](https://github.com/you0708/adrsir)
 
 ### モジュール構成
