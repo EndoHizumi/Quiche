@@ -1,6 +1,6 @@
 # Quiche
 
-Raspberry Piで家電を操作するWebシステム
+赤外線モジュール『ADRSIR』を使用して、Raspberry Piで家電を操作するWebシステム
 
 [![Github issues](https://img.shields.io/github/issues/EndoHizumi/Quiche)](https://github.com/EndoHizumi/Quiche/issues)
 [![Github forks](https://img.shields.io/github/forks/EndoHizumi/Quiche)](https://github.com/EndoHizumi/Quiche/network/members)
