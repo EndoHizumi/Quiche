@@ -20,11 +20,11 @@ def send(command: str, name: str) -> str:
     """
 
     command_file_path = os.path.join(command_files_dir, f'{name}.json')
-    with open(command_file_path) as command_json:
-        commands = json.load(command_json)
-        command_type = commands['type']
+    with open(command_file_path) as command_json_file:
+        command_dict = json.load(command_json_file)
+        command_type = command_dict['type']
         if command_type == 'ir':
-            ir.trans(commands[command])
+            ir.trans(command_dict[command])
             return(f'IR Command {command} send for {name}!')
         elif command_type == 'wi-fi':
             return(f'send to request {command} for {name}!')
@@ -40,13 +40,13 @@ def show(name: str) -> Dict[str, str]:
     """
 
     command_file_path = os.path.join(command_files_dir, f'{name}.json')
-    with open(command_file_path) as command_json:
-        commands = json.load(command_json)
-        action_lists = {}
-        action_lists['name'] = name
-        action_lists['commands'] = list(commands.keys())[1:]
-        action_lists['type'] = commands['type']
-    return json.dumps(action_lists)
+    with open(command_file_path) as command_json_file:
+        command_dict = json.load(command_json_file)
+        command_lists = {}
+        command_lists['name'] = name
+        command_lists['command_dict'] = list(command_dict.keys())[1:]
+        command_lists['type'] = command_dict['type']
+    return command_lists
 
 
 def read(name: str, button_no: list, command: list) -> List[str]:
@@ -69,11 +69,11 @@ def read(name: str, button_no: list, command: list) -> List[str]:
     else:
         pattern_list['type'] = 'ir'
 
-    for button, action_name in zip(button_no, action):
-        pattern_list[action_name] = ir.read(button)
-        result += [f'registered {action_name} of {name}']
+    for button, command_name in zip(button_no, command):
+        pattern_list[command_name] = ir.read(button)
+        result += [f'registered {command_name} of {name}']
 
-    with open(command_file_path, 'w') as command_json:
-        json.dump(pattern_list, command_json)
+    with open(command_file_path, 'w') as command_json_file:
+        json.dump(pattern_list, command_json_file)
 
     return result
