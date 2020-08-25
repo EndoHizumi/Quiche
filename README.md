@@ -15,15 +15,18 @@
 
 登録した家電をREST APIで操作ができます。
 
-##　equipment
+##　Equipment
+
+- Raspberry Pi 3 Model b+
+- 赤外線学習リモコン基板 ADRSIR (http://bit-trade-one.co.jp/product/module/adrsir/)
 
 ## Installation
 
-dependence.sh を実行する。  
+install.sh を実行する。  
 ※パッケージのインストールのため、パスワードの入力があります。  
 
 ```bash
-$ sh dependence.sh
+$ sh install.sh
 ```
 
 ## Usage
