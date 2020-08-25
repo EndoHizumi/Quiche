@@ -29,7 +29,7 @@ install.sh を実行する。
 $ sh install.sh
 ```
 
-## Usage
+## Example
 
 - 家電の登録
 
