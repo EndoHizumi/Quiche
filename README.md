@@ -43,9 +43,12 @@ curl http://localhost:8080/signals/appliances
 
 ```
 
-# Deployment
-## 利用技術
- Flask
+## Deployment
+
+### 利用ライブラリ・フレームワーク
+
+API部分: Flask
+ADRSIR操作: [you0708/adrsir](https://github.com/you0708/adrsir)
 
 ## モジュール構成
 
